@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<meta name="theme-color" content="#2e9e6b" />
+<meta name="color-scheme" content="light" />
+<!-- iOS 添加到主屏幕支持 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="生物教研" />
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzRiMjdhIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFmN2E1MiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTAiIGZpbGw9InVybCgjZykiLz4KICA8IS0tIEROQSDlj4zonrrml4vnroDljJYgLS0+CiAgPGcgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjE0IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuOTUiPgogICAgPHBhdGggZD0iTTE4NiAxNTAgQyAzMjYgMjEwLCAxODYgMzAyLCAzMjYgMzYyIi8+CiAgICA8cGF0aCBkPSJNMzI2IDE1MCBDIDE4NiAyMTAsIDMyNiAzMDIsIDE4NiAzNjIiLz4KICAgIDxsaW5lIHgxPSIyMDYiIHkxPSIxNzgiIHgyPSIzMDYiIHkyPSIxNzgiLz4KICAgIDxsaW5lIHgxPSIyNDYiIHkxPSIyMjYiIHgyPSIyNjYiIHkyPSIyMjYiLz4KICAgIDxsaW5lIHgxPSIyNDYiIHkxPSIyODYiIHgyPSIyNjYiIHkyPSIyODYiLz4KICAgIDxsaW5lIHgxPSIyMDYiIHkxPSIzMzQiIHgyPSIzMDYiIHkyPSIzMzQiLz4KICA8L2c+Cjwvc3ZnPgo=" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzRiMjdhIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFmN2E1MiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTAiIGZpbGw9InVybCgjZykiLz4KICA8IS0tIEROQSDlj4zonrrml4vnroDljJYgLS0+CiAgPGcgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjE0IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuOTUiPgogICAgPHBhdGggZD0iTTE4NiAxNTAgQyAzMjYgMjEwLCAxODYgMzAyLCAzMjYgMzYyIi8+CiAgICA8cGF0aCBkPSJNMzI2IDE1MCBDIDE4NiAyMTAsIDMyNiAzMDIsIDE4NiAzNjIiLz4KICAgIDxsaW5lIHgxPSIyMDYiIHkxPSIxNzgiIHgyPSIzMDYiIHkyPSIxNzgiLz4KICAgIDxsaW5lIHgxPSIyNDYiIHkxPSIyMjYiIHgyPSIyNjYiIHkyPSIyMjYiLz4KICAgIDxsaW5lIHgxPSIyNDYiIHkxPSIyODYiIHgyPSIyNjYiIHkyPSIyODYiLz4KICAgIDxsaW5lIHgxPSIyMDYiIHkxPSIzMzQiIHgyPSIzMDYiIHkyPSIzMzQiLz4KICA8L2c+Cjwvc3ZnPgo=" />
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIueUn+eJqeaVmeeglOWRmOW3peS9nOWPsCIsICJzaG9ydF9uYW1lIjogIueUn+eJqeaVmeeglCIsICJkZXNjcmlwdGlvbiI6ICLkuK3lrabnlJ/nianmlZnnoJTlkZjlt6XkvZzlj7DotKbvvIjnprvnur/niYjvvIkiLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiI2VlZjNmMCIsICJ0aGVtZV9jb2xvciI6ICIjMmU5ZTZiIiwgImxhbmciOiAiemgtQ04iLCAiaWNvbnMiOiBbeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQTFNVElnTlRFeUlpQjNhV1IwYUQwaU5URXlJaUJvWldsbmFIUTlJalV4TWlJK0NpQWdQR1JsWm5NK0NpQWdJQ0E4YkdsdVpXRnlSM0poWkdsbGJuUWdhV1E5SW1jaUlIZ3hQU0l3SWlCNU1UMGlNQ0lnZURJOUlqRWlJSGt5UFNJeElqNEtJQ0FnSUNBZ1BITjBiM0FnYjJabWMyVjBQU0l3SWlCemRHOXdMV052Ykc5eVBTSWpNelJpTWpkaElpOCtDaUFnSUNBZ0lEeHpkRzl3SUc5bVpuTmxkRDBpTVNJZ2MzUnZjQzFqYjJ4dmNqMGlJekZtTjJFMU1pSXZQZ29nSUNBZ1BDOXNhVzVsWVhKSGNtRmthV1Z1ZEQ0S0lDQThMMlJsWm5NK0NpQWdQSEpsWTNRZ2QybGtkR2c5SWpVeE1pSWdhR1ZwWjJoMFBTSTFNVElpSUhKNFBTSXhNVEFpSUdacGJHdzlJblZ5YkNnalp5a2lMejRLSUNBOElTMHRJRVJPUVNEbGo0em9ucnJtbDR2bnJvRGxqSllnTFMwK0NpQWdQR2NnYzNSeWIydGxQU0lqWm1abVptWm1JaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqRTBJaUJtYVd4c1BTSnViMjVsSWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlJRzl3WVdOcGRIazlJakF1T1RVaVBnb2dJQ0FnUEhCaGRHZ2daRDBpVFRFNE5pQXhOVEFnUXlBek1qWWdNakV3TENBeE9EWWdNekF5TENBek1qWWdNell5SWk4K0NpQWdJQ0E4Y0dGMGFDQmtQU0pOTXpJMklERTFNQ0JESURFNE5pQXlNVEFzSURNeU5pQXpNRElzSURFNE5pQXpOaklpTHo0S0lDQWdJRHhzYVc1bElIZ3hQU0l5TURZaUlIa3hQU0l4TnpnaUlIZ3lQU0l6TURZaUlIa3lQU0l4TnpnaUx6NEtJQ0FnSUR4c2FXNWxJSGd4UFNJeU5EWWlJSGt4UFNJeU1qWWlJSGd5UFNJeU5qWWlJSGt5UFNJeU1qWWlMejRLSUNBZ0lEeHNhVzVsSUhneFBTSXlORFlpSUhreFBTSXlPRFlpSUhneVBTSXlOallpSUhreVBTSXlPRFlpTHo0S0lDQWdJRHhzYVc1bElIZ3hQU0l5TURZaUlIa3hQU0l6TXpRaUlIZ3lQU0l6TURZaUlIa3lQU0l6TXpRaUx6NEtJQ0E4TDJjK0Nqd3ZjM1puUGdvPSIsICJzaXplcyI6ICJhbnkiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55In0sIHsic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0ExTVRJZ05URXlJaUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSStDaUFnUEdSbFpuTStDaUFnSUNBOGJHbHVaV0Z5UjNKaFpHbGxiblFnYVdROUltY2lJSGd4UFNJd0lpQjVNVDBpTUNJZ2VESTlJakVpSUhreVBTSXhJajRLSUNBZ0lDQWdQSE4wYjNBZ2IyWm1jMlYwUFNJd0lpQnpkRzl3TFdOdmJHOXlQU0lqTXpSaU1qZGhJaTgrQ2lBZ0lDQWdJRHh6ZEc5d0lHOW1abk5sZEQwaU1TSWdjM1J2Y0MxamIyeHZjajBpSXpGbU4yRTFNaUl2UGdvZ0lDQWdQQzlzYVc1bFlYSkhjbUZrYVdWdWRENEtJQ0E4TDJSbFpuTStDaUFnUEhKbFkzUWdkMmxrZEdnOUlqVXhNaUlnYUdWcFoyaDBQU0kxTVRJaUlISjRQU0l4TVRBaUlHWnBiR3c5SW5WeWJDZ2paeWtpTHo0S0lDQThJUzB0SUVST1FTRGxqNHpvbnJybWw0dm5yb0RsakpZZ0xTMCtDaUFnUEdjZ2MzUnliMnRsUFNJalptWm1abVptSWlCemRISnZhMlV0ZDJsa2RHZzlJakUwSWlCbWFXeHNQU0p1YjI1bElpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUc5d1lXTnBkSGs5SWpBdU9UVWlQZ29nSUNBZ1BIQmhkR2dnWkQwaVRURTROaUF4TlRBZ1F5QXpNallnTWpFd0xDQXhPRFlnTXpBeUxDQXpNallnTXpZeUlpOCtDaUFnSUNBOGNHRjBhQ0JrUFNKTk16STJJREUxTUNCRElERTROaUF5TVRBc0lETXlOaUF6TURJc0lERTROaUF6TmpJaUx6NEtJQ0FnSUR4c2FXNWxJSGd4UFNJeU1EWWlJSGt4UFNJeE56Z2lJSGd5UFNJek1EWWlJSGt5UFNJeE56Z2lMejRLSUNBZ0lEeHNhVzVsSUhneFBTSXlORFlpSUhreFBTSXlNallpSUhneVBTSXlOallpSUhreVBTSXlNallpTHo0S0lDQWdJRHhzYVc1bElIZ3hQU0l5TkRZaUlIa3hQU0l5T0RZaUlIZ3lQU0l5TmpZaUlIa3lQU0l5T0RZaUx6NEtJQ0FnSUR4c2FXNWxJSGd4UFNJeU1EWWlJSGt4UFNJek16UWlJSGd5UFNJek1EWWlJSGt5UFNJek16UWlMejRLSUNBOEwyYytDand2YzNablBnbz0iLCAic2l6ZXMiOiAiYW55IiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogIm1hc2thYmxlIn1dfQ==" />
+<title>生物教研员工作台</title>
+<style>
+  :root{
+    --primary:#2e9e6b; --primary-d:#1f7a52; --accent:#4caf7d;
+    --bg:#eef3f0; --card:#ffffff; --text:#1f2d27; --muted:#6b7d74;
+    --line:#e4ebe6; --shadow:0 2px 12px rgba(31,43,39,.07);
+    --warn:#e0922f; --danger:#d9534f;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.55;
+    padding-bottom:calc(64px + env(safe-area-inset-bottom));
+    -webkit-font-smoothing:antialiased;
+  }
+  /* 顶部栏 */
+  .app-header{
+    position:sticky; top:0; z-index:20;
+    background:linear-gradient(135deg,var(--primary),var(--primary-d));
+    color:#fff; display:flex; align-items:center; gap:10px;
+    padding:calc(env(safe-area-inset-top) + 12px) 14px 12px;
+    box-shadow:0 2px 14px rgba(31,122,82,.25);
+  }
+  .back-btn{
+    border:none; background:rgba(255,255,255,.18); color:#fff;
+    width:36px; height:36px; border-radius:10px; font-size:20px;
+    display:none; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .back-btn.show{display:flex;}
+  .titles{flex:1; min-width:0;}
+  .h-title{font-size:17px; font-weight:700; letter-spacing:.5px;}
+  .h-sub{font-size:12px; opacity:.85; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  /* 内容区 */
+  #view{max-width:760px; margin:0 auto; padding:14px 14px 24px;}
+  .card{background:var(--card); border-radius:16px; padding:16px; box-shadow:var(--shadow); margin-bottom:14px;}
+  .card h3{margin:0 0 8px; font-size:15px;}
+  .muted{color:var(--muted); font-size:13px;}
+  /* 概览 */
+  .hero{
+    background:linear-gradient(135deg,var(--primary),var(--primary-d));
+    color:#fff; border-radius:18px; padding:18px 18px 20px; margin-bottom:14px;
+    box-shadow:0 6px 18px rgba(31,122,82,.22);
+  }
+  .hero .hi{font-size:13px; opacity:.9;}
+  .hero .big{font-size:21px; font-weight:800; margin:4px 0 14px;}
+  .stat-row{display:flex; gap:10px;}
+  .stat{flex:1; background:rgba(255,255,255,.16); border-radius:12px; padding:10px 12px;}
+  .stat .n{font-size:22px; font-weight:800;}
+  .stat .t{font-size:12px; opacity:.9;}
+  .progress{height:8px; background:rgba(255,255,255,.28); border-radius:99px; overflow:hidden; margin-top:6px;}
+  .progress > i{display:block; height:100%; background:#fff; width:0; border-radius:99px; transition:width .3s;}
+  /* 模块网格 */
+  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+  @media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr);}}
+  .mod-card{
+    background:var(--card); border-radius:16px; padding:14px 12px; box-shadow:var(--shadow);
+    cursor:pointer; border:1px solid transparent; transition:transform .12s, border-color .12s;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .mod-card:active{transform:scale(.97);}
+  .mod-ico{font-size:26px; width:46px; height:46px; border-radius:12px;
+    background:linear-gradient(135deg,#e7f4ec,#d6efe0); display:flex; align-items:center; justify-content:center;}
+  .mod-title{font-size:14px; font-weight:700; line-height:1.35;}
+  .mod-meta{font-size:11px; color:var(--muted);}
+  .mod-bar{height:5px; background:var(--line); border-radius:99px; overflow:hidden;}
+  .mod-bar > i{display:block; height:100%; background:var(--accent); width:0;}
+  /* 模块详情 */
+  .intro{font-size:13.5px; color:#33433c; background:#f3f8f5; border-left:4px solid var(--accent);
+    border-radius:0 12px 12px 0; padding:12px 14px;}
+  .seg{display:flex; background:#e9efeb; border-radius:12px; padding:4px; gap:4px; margin:4px 0 14px;}
+  .seg button{flex:1; border:none; background:transparent; padding:10px; border-radius:9px;
+    font-size:14px; font-weight:700; color:var(--muted); cursor:pointer;}
+  .seg button.on{background:#fff; color:var(--primary-d); box-shadow:0 1px 4px rgba(0,0,0,.08);}
+  .task{display:flex; align-items:flex-start; gap:11px; padding:11px 4px; border-bottom:1px solid var(--line);}
+  .task:last-child{border-bottom:none;}
+  .task input{appearance:none; -webkit-appearance:none; width:22px; height:22px; min-width:22px;
+    border:2px solid #c7d3cc; border-radius:7px; margin-top:1px; cursor:pointer; position:relative; background:#fff;}
+  .task input:checked{background:var(--primary); border-color:var(--primary);}
+  .task input:checked::after{content:""; position:absolute; left:7px; top:3px; width:5px; height:10px;
+    border:solid #fff; border-width:0 2.5px 2.5px 0; transform:rotate(45deg);}
+  .task label{flex:1; font-size:14px; cursor:pointer;}
+  .task.done label{color:var(--muted); text-decoration:line-through;}
+  .sec-title{font-size:13px; font-weight:700; color:var(--primary-d); margin:18px 0 6px;
+    display:flex; align-items:center; gap:6px;}
+  textarea{
+    width:100%; min-height:90px; border:1px solid var(--line); border-radius:12px;
+    padding:11px 12px; font-size:14px; font-family:inherit; resize:vertical; color:var(--text);
+    background:#fafcfb;
+  }
+  textarea:focus{outline:none; border-color:var(--accent);}
+  .auto-save{font-size:11px; color:var(--accent); text-align:right; height:14px; margin-top:4px;}
+  /* 待办 */
+  .add-row{display:flex; gap:8px; margin-bottom:12px;}
+  .add-row input{flex:1; border:1px solid var(--line); border-radius:12px; padding:11px 12px; font-size:14px; font-family:inherit;}
+  .add-row input:focus{outline:none; border-color:var(--accent);}
+  .btn{border:none; border-radius:12px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer;
+    background:var(--primary); color:#fff; white-space:nowrap;}
+  .btn:active{transform:scale(.97);}
+  .btn.ghost{background:#e9efeb; color:var(--primary-d);}
+  .btn.sm{padding:7px 11px; font-size:12px; border-radius:9px;}
+  .todo{display:flex; align-items:center; gap:11px; padding:12px 4px; border-bottom:1px solid var(--line);}
+  .todo input{appearance:none;-webkit-appearance:none;width:22px;height:22px;min-width:22px;border:2px solid #c7d3cc;
+    border-radius:7px; cursor:pointer; position:relative; background:#fff;}
+  .todo input:checked{background:var(--primary); border-color:var(--primary);}
+  .todo input:checked::after{content:"";position:absolute;left:7px;top:3px;width:5px;height:10px;border:solid #fff;
+    border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .todo span{flex:1; font-size:14px; word-break:break-word;}
+  .todo.done span{color:var(--muted); text-decoration:line-through;}
+  .del{border:none; background:transparent; color:var(--danger); font-size:18px; cursor:pointer; padding:4px 8px;}
+  .empty{text-align:center; color:var(--muted); font-size:13px; padding:30px 0;}
+  /* 关于 */
+  .about p{font-size:13.5px; color:#33433c; margin:8px 0;}
+  .about ol{font-size:13px; color:#33433c; padding-left:20px; margin:8px 0;}
+  .about li{margin:5px 0;}
+  .about .kv{font-weight:700; color:var(--primary-d);}
+  .row-btns{display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;}
+  .row-btns .btn{flex:1; min-width:120px;}
+  /* 听课记录 */
+  .rec-form{display:none; background:#f3f8f5; border-radius:12px; padding:12px; margin-bottom:10px;}
+  .rec-form.show{display:block;}
+  .rec-form .fld{display:flex; gap:8px; margin-bottom:8px;}
+  .rec-form input{border:1px solid var(--line); border-radius:9px; padding:8px 10px; font-size:13px; font-family:inherit; background:#fff; flex:1; min-width:0;}
+  .rec-form input[type=date]{flex:1;}
+  .rec-form textarea{border:1px solid var(--line); border-radius:9px; padding:8px 10px; font-size:13px; font-family:inherit; background:#fff; width:100%; min-height:46px; margin-bottom:8px;}
+  .rec-item{border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:8px; background:#fff;}
+  .rec-item .rh{font-size:13.5px; font-weight:700; display:flex; justify-content:space-between; gap:8px; align-items:center;}
+  .rec-item .rm{font-size:12.5px; color:var(--muted); margin-top:5px; white-space:pre-wrap; line-height:1.5;}
+  /* 工作历 */
+  .cal-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+  @media(min-width:560px){.cal-grid{grid-template-columns:repeat(3,1fr);}}
+  .cal-card{background:var(--card); border-radius:14px; padding:12px; box-shadow:var(--shadow);}
+  .cal-card .cm{font-size:13px; font-weight:700; color:var(--primary-d); margin-bottom:6px;}
+  .cal-card textarea{min-height:70px; border:1px solid var(--line); border-radius:10px; padding:8px; font-size:12.5px; font-family:inherit; background:#fafcfb; width:100%;}
+  /* 底部导航 */
+  .bottom-nav{
+    position:fixed; left:0; right:0; bottom:0; z-index:30;
+    display:flex; background:#fff; box-shadow:0 -2px 14px rgba(31,43,39,.08);
+    padding-bottom:env(safe-area-inset-bottom);
+    max-width:760px; margin:0 auto;
+  }
+  .bottom-nav button{flex:1; border:none; background:transparent; padding:9px 0 8px; cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; gap:2px; color:var(--muted); font-size:11px;}
+  .bottom-nav button .ni{font-size:20px;}
+  .bottom-nav button.on{color:var(--primary);}
+  .badge{position:absolute; top:2px; right:50%; transform:translateX(34px);
+    background:var(--danger); color:#fff; font-size:10px; min-width:16px; height:16px; line-height:16px;
+    border-radius:99px; padding:0 4px; text-align:center;}
+  .nav-wrap{position:relative;}
+</style>
+</head>
+<body>
+  <header class="app-header">
+    <button class="back-btn" id="backBtn" onclick="goHome()">‹</button>
+    <div class="titles">
+      <div class="h-title" id="hTitle">生物教研员工作台</div>
+      <div class="h-sub" id="hSub"></div>
+    </div>
+  </header>
+
+  <main id="view"></main>
+
+  <nav class="bottom-nav">
+    <button id="navHome" class="on" onclick="goHome()"><span class="ni">🏠</span>工作台</button>
+    <button id="navTodo" onclick="goTodo()"><span class="ni nav-wrap">✅<span class="badge" id="todoBadge" style="display:none">0</span></span>待办</button>
+    <button id="navCal" onclick="goCalendar()"><span class="ni">🗓</span>工作历</button>
+    <button id="navAbout" onclick="goAbout()"><span class="ni">ⓘ</span>关于</button>
+  </nav>
+
+  <script>
+  /* ============ 模块数据 ============ */
+  const MODULES = [
+    {
+      id:'m1', icon:'📚', title:'课堂研究与教学指导',
+      intro:'深入初高中学校听课评课，指导生物教师落实新课标，推进大单元教学、实验教学与探究教学；重点帮扶青年教师与薄弱学校，组织公开课、示范课与观摩研讨。',
+      stages:{
+        junior:{ label:'初中', tasks:[
+          '深入初中学校听课评课，做好课堂观察记录',
+          '指导初中生物教师落实新课标理念',
+          '推进初中大单元教学、实验教学、探究教学',
+          '重点指导初中青年教师与薄弱学校生物教学',
+          '组织初中生物公开课、示范课、观摩研讨'
+        ]},
+        senior:{ label:'高中', tasks:[
+          '深入高中学校听课评课，做好课堂观察记录',
+          '指导高中生物教师落实新课标理念',
+          '推进高中大单元教学、实验教学、探究教学',
+          '重点指导高中青年教师与薄弱学校生物教学',
+          '组织高中生物公开课、示范课、观摩研讨'
+        ]}
+      }
+    },
+    {
+      id:'m2', icon:'📊', title:'考试评价·命题·质量分析',
+      intro:'负责本区初中生物结业考试、高中生物统考的命题、审题、磨题；考后开展专项质量分析，研究中考高考命题趋势，组织备考教研并指导复习策略。',
+      stages:{
+        junior:{ label:'初中', tasks:[
+          '负责本区初中生物结业考试命题、审题、磨题',
+          '考后开展初中生物专项质量分析（学情/教情）',
+          '形成初中生物学科改进建议',
+          '研究中考生物命题趋势',
+          '组织初中生物备考教研，指导复习策略'
+        ]},
+        senior:{ label:'高中', tasks:[
+          '负责本区高中生物统考命题、审题、磨题',
+          '考后开展高中生物专项质量分析（学情/教情）',
+          '形成高中生物学科改进建议',
+          '研究高考生物命题趋势',
+          '组织高中生物备考教研，指导复习策略'
+        ]}
+      }
+    },
+    {
+      id:'m3', icon:'👥', title:'教师队伍建设',
+      intro:'组织初高中生物区域教研活动，指导教研组建设，培养骨干教师，指导教师参赛（优质课、实验说课、教学设计、论文、课题），开展学科专题培训。',
+      stages:{
+        junior:{ label:'初中', tasks:[
+          '组织初中生物学科区域教研活动',
+          '指导初中生物学科教研组建设',
+          '培养本区初中生物骨干教师',
+          '指导初中教师参加优质课、实验说课、教学设计、论文、课题',
+          '开展初中生物学科专题培训'
+        ]},
+        senior:{ label:'高中', tasks:[
+          '组织高中生物学科区域教研活动',
+          '指导高中生物学科教研组建设',
+          '培养本区高中生物骨干教师',
+          '指导高中教师参加优质课、实验说课、教学设计、论文、课题',
+          '开展高中生物学科专题培训'
+        ]}
+      }
+    },
+    {
+      id:'m4', icon:'🔬', title:'实验教学与资源建设',
+      intro:'落实初高中生物学实验教学，调研学校实验室开设情况，组织实验教学评比；开发并征集、筛选、推广区域教学资源（课件、单元案例、作业、校本资源）。',
+      stages:{
+        junior:{ label:'初中', tasks:[
+          '落实初中生物学实验教学开课情况',
+          '调研初中学校实验室开设与装备现状',
+          '组织初中生物实验教学评比',
+          '开发初中生物教学资源（课件、单元案例、作业）',
+          '开展初中教学资源征集、筛选与推广'
+        ]},
+        senior:{ label:'高中', tasks:[
+          '落实高中生物学实验教学开课情况',
+          '调研高中学校实验室开设与装备现状',
+          '组织高中生物实验教学评比',
+          '开发高中生物教学资源（课件、单元案例、作业）',
+          '开展高中教学资源征集、筛选与推广'
+        ]}
+      }
+    },
+    {
+      id:'m5', icon:'📝', title:'学科课题研究',
+      intro:'主持或指导生物学科教学研究课题，组织教师开展教学研究，总结区域生物教学经验，形成可推广的成果。',
+      stages:{
+        junior:{ label:'初中', tasks:[
+          '主持或指导初中生物教学研究课题',
+          '组织初中教师开展教学研究',
+          '总结初中生物区域教学经验',
+          '提炼初中生物教研成果并推广应用'
+        ]},
+        senior:{ label:'高中', tasks:[
+          '主持或指导高中生物教学研究课题',
+          '组织高中教师开展教学研究',
+          '总结高中生物区域教学经验',
+          '提炼高中生物教研成果并推广应用'
+        ]}
+      }
+    },
+    {
+      id:'m6', icon:'🏆', title:'竞赛与科普活动',
+      intro:'统筹本区中学生生物学竞赛、科技实践与生物科普实践活动，做好组织、指导、遴选与上报工作。',
+      stages:{
+        junior:{ label:'初中', tasks:[
+          '统筹初中学生生物学竞赛的组织与指导',
+          '组织初中生物科技实践活动',
+          '组织初中生物科普实践活动',
+          '做好初中参赛作品的遴选与上报'
+        ]},
+        senior:{ label:'高中', tasks:[
+          '统筹高中学生生物学竞赛的组织与指导',
+          '组织高中生物科技实践活动',
+          '组织高中生物科普实践活动',
+          '做好高中参赛作品的遴选与上报'
+        ]}
+      }
+    },
+    {
+      id:'m7', icon:'🔍', title:'学科调研反馈',
+      intro:'针对生物学科教学痛点开展专题调研，向学校、教研室、教育局反馈教学现状，提出有针对性的改进建议。',
+      stages:{
+        junior:{ label:'初中', tasks:[
+          '针对初中生物教学痛点开展专题调研',
+          '分析初中生物教学现状与成因',
+          '向学校反馈初中生物教学改进建议',
+          '向教研室、教育局报送初中调研报告'
+        ]},
+        senior:{ label:'高中', tasks:[
+          '针对高中生物教学痛点开展专题调研',
+          '分析高中生物教学现状与成因',
+          '向学校反馈高中生物教学改进建议',
+          '向教研室、教育局报送高中调研报告'
+        ]}
+      }
+    }
+  ];
+
+  /* ============ 状态存储 ============ */
+  const KEY = 'bio_workbench_v1';
+  let state = load();
+  function load(){
+    try{ return JSON.parse(localStorage.getItem(KEY)) || {done:{},notes:{},todos:[],records:{},calendar:{}}; }
+    catch(e){ return {done:{},notes:{},todos:[],records:{},calendar:{}}; }
+  }
+  function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+  const doneKey = (m,s,i)=>`d::${m}::${s}::${i}`;
+  const noteKey = (m,s)=>`n::${m}::${s}`;
+
+  /* ============ 视图切换 ============ */
+  let cur = 'home';
+  let curMod = null, curStage = 'junior';
+
+  function setNav(name){
+    ['Home','Todo','About','Calendar'].forEach(n=>document.getElementById('nav'+n).classList.toggle('on', n===name));
+    document.getElementById('backBtn').classList.toggle('show', name!=='Home');
+    updateBadge();
+  }
+  function updateBadge(){
+    const n = (state.todos||[]).filter(t=>!t.done).length;
+    const b = document.getElementById('todoBadge');
+    if(n>0){ b.style.display='block'; b.textContent = n>99?'99':n; } else b.style.display='none';
+  }
+
+  function goHome(){ cur='home'; setNav('Home'); renderHome(); }
+  function goTodo(){ cur='todo'; setNav('Todo'); renderTodo(); }
+  function goAbout(){ cur='about'; setNav('About'); renderAbout(); }
+  function goCalendar(){ cur='calendar'; setNav('Calendar'); renderCalendar(); }
+  function openMod(id){ curMod=id; curStage='junior'; setNav('Home'); renderMod(); }
+
+  /* ============ 首页 ============ */
+  function totals(){
+    let total=0, done=0;
+    MODULES.forEach(m=>{
+      ['junior','senior'].forEach(s=>{
+        (m.stages[s].tasks||[]).forEach((t,i)=>{ total++; if(state.done[doneKey(m.id,s,i)]) done++; });
+      });
+    });
+    return {total, done};
+  }
+  function renderHome(){
+    document.getElementById('hTitle').textContent='生物教研员工作台';
+    document.getElementById('hSub').textContent=greet()+' · '+today();
+    const {total,done}=totals();
+    const pct = total? Math.round(done/total*100):0;
+    const pend = (state.todos||[]).filter(t=>!t.done).length;
+    let html = `
+      <div class="hero">
+        <div class="hi">${greet()}，教研员老师</div>
+        <div class="big">今日工作概览</div>
+        <div class="stat-row">
+          <div class="stat"><div class="n">${done}/${total}</div><div class="t">履职任务完成</div></div>
+          <div class="stat"><div class="n">${pend}</div><div class="t">待办事项</div></div>
+        </div>
+        <div class="progress" style="margin-top:12px"><i style="width:${pct}%"></i></div>
+        <div class="muted" style="color:#fff;opacity:.9;font-size:12px;margin-top:6px">整体完成度 ${pct}%</div>
+      </div>
+      <div class="card">
+        <h3>七大工作职责</h3>
+        <div class="muted">点击进入，按「初中 / 高中」分学段记录与勾选</div>
+      </div>
+      <div class="grid">
+    `;
+    MODULES.forEach(m=>{
+      let t=0,d=0;
+      ['junior','senior'].forEach(s=>(m.stages[s].tasks||[]).forEach((x,i)=>{t++;if(state.done[doneKey(m.id,s,i)])d++;}));
+      const p = t? Math.round(d/t*100):0;
+      html += `
+        <div class="mod-card" onclick="openMod('${m.id}')">
+          <div class="mod-ico">${m.icon}</div>
+          <div class="mod-title">${m.title}</div>
+          <div class="mod-bar"><i style="width:${p}%"></i></div>
+          <div class="mod-meta">${d}/${t} 项 · ${p}%</div>
+        </div>`;
+    });
+    html += `</div>`;
+    document.getElementById('view').innerHTML = html;
+  }
+
+  /* ============ 模块详情 ============ */
+  function renderMod(){
+    const m = MODULES.find(x=>x.id===curMod);
+    document.getElementById('hTitle').textContent=m.title;
+    document.getElementById('hSub').textContent='初中 / 高中 分学段履职';
+    const html = `
+      <div class="card intro">${m.intro}</div>
+      <div class="seg">
+        <button id="segJ" class="${curStage==='junior'?'on':''}" onclick="setStage('junior')">初中</button>
+        <button id="segS" class="${curStage==='senior'?'on':''}" onclick="setStage('senior')">高中</button>
+      </div>
+      <div id="stageBox"></div>
+    `;
+    document.getElementById('view').innerHTML = html;
+    renderStage();
+  }
+  function setStage(s){ curStage=s; document.getElementById('segJ').classList.toggle('on',s==='junior');
+    document.getElementById('segS').classList.toggle('on',s==='senior'); renderStage(); }
+  function renderStage(){
+    const m = MODULES.find(x=>x.id===curMod);
+    const st = m.stages[curStage];
+    let html = `<div class="card"><div class="sec-title">✅ ${st.label}履职清单</div>`;
+    st.tasks.forEach((t,i)=>{
+      const ck = state.done[doneKey(m.id,curStage,i)]? 'checked':'';
+      const cls = state.done[doneKey(m.id,curStage,i)]? 'done':'';
+      html += `<div class="task ${cls}">
+        <input type="checkbox" ${ck} onchange="toggleTask('${m.id}','${curStage}',${i},this)">
+        <label onclick="this.previousElementSibling.click()">${t}</label></div>`;
+    });
+    html += `</div>`;
+    html += `<div class="card"><div class="sec-title">📝 ${st.label}工作记录</div>
+      <textarea id="note" placeholder="记录本学段的工作安排、听课要点、会议结论、改进建议……（自动保存）">${esc(state.notes[noteKey(m.id,curStage)]||'')}</textarea>
+      <div class="auto-save" id="saveTip"></div></div>`;
+    if(m.id==='m1'){
+      html += `<div class="card"><div class="sec-title">🎧 ${st.label}听课记录</div>
+        <div class="rec-form" id="recForm">
+          <div class="fld"><input id="rfSchool" placeholder="学校"></div>
+          <div class="fld"><input id="rfTeacher" placeholder="授课教师"></div>
+          <div class="fld"><input id="rfGrade" placeholder="年级/班级"></div>
+          <div class="fld"><input id="rfTopic" placeholder="课题"></div>
+          <div class="fld"><input id="rfDate" type="date"></div>
+          <textarea id="rfStrength" placeholder="教学亮点"></textarea>
+          <textarea id="rfWeak" placeholder="存在不足"></textarea>
+          <textarea id="rfSuggest" placeholder="改进建议"></textarea>
+          <div class="row-btns" style="margin-top:4px">
+            <button class="btn sm" onclick="saveRecord('${m.id}','${curStage}')">保存记录</button>
+            <button class="btn ghost sm" onclick="document.getElementById('recForm').classList.remove('show')">收起</button>
+          </div>
+        </div>
+        <button class="btn ghost sm" onclick="document.getElementById('recForm').classList.add('show')">＋ 添加听课记录</button>
+        <div id="recList" style="margin-top:10px"></div></div>`;
+    }
+    document.getElementById('stageBox').innerHTML = html;
+    const ta = document.getElementById('note');
+    ta.addEventListener('input', ()=>{
+      state.notes[noteKey(m.id,curStage)] = ta.value; save();
+      const tip=document.getElementById('saveTip'); tip.textContent='已保存 ✓';
+      clearTimeout(ta._t); ta._t=setTimeout(()=>tip.textContent='',1200);
+    });
+    if(m.id==='m1') renderRecords(m.id, curStage);
+  }
+  function renderRecords(m,s){
+    const key='r::'+m+'::'+s;
+    const list=state.records[key]||[];
+    const box=document.getElementById('recList');
+    if(!list.length){ box.innerHTML='<div class="muted" style="font-size:12.5px">暂无记录，点上面添加。</div>'; return; }
+    let h='';
+    list.forEach((r,idx)=>{
+      const meta=[r.school,r.teacher,r.grade].filter(Boolean).join(' · ');
+      const detail=[r.strength?('亮点：'+r.strength):'', r.weak?('不足：'+r.weak):'', r.suggest?('建议：'+r.suggest):''].filter(Boolean).join('\n');
+      h+=`<div class="rec-item">
+        <div class="rh"><span>${esc(meta||'听课记录')}　${esc(r.topic||'')}${r.date?'　'+esc(r.date):''}</span>
+          <button class="del" onclick="delRecord('${m}','${s}',${idx})">🗑</button></div>
+        <div class="rm">${esc(detail)}</div></div>`;
+    });
+    box.innerHTML=h;
+  }
+  function saveRecord(m,s){
+    const g=id=>document.getElementById(id).value.trim();
+    const rec={school:g('rfSchool'),teacher:g('rfTeacher'),grade:g('rfGrade'),topic:g('rfTopic'),date:g('rfDate'),
+      strength:g('rfStrength'),weak:g('rfWeak'),suggest:g('rfSuggest')};
+    if(!rec.school && !rec.teacher && !rec.topic){ alert('请至少填写学校、教师或课题'); return; }
+    const key='r::'+m+'::'+s; state.records[key]=state.records[key]||[];
+    state.records[key].unshift(rec); save();
+    ['rfSchool','rfTeacher','rfGrade','rfTopic','rfDate','rfStrength','rfWeak','rfSuggest'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('recForm').classList.remove('show');
+    renderRecords(m,s);
+  }
+  function delRecord(m,s,idx){
+    const key='r::'+m+'::'+s; state.records[key].splice(idx,1); save(); renderRecords(m,s);
+  }
+  function toggleTask(m,s,i,el){
+    if(el.checked) state.done[doneKey(m,s,i)]=true; else delete state.done[doneKey(m,s,i)];
+    save(); el.closest('.task').classList.toggle('done', el.checked);
+    if(cur==='home') renderHome(); else renderMod();
+  }
+
+  /* ============ 待办 ============ */
+  function renderTodo(){
+    document.getElementById('hTitle').textContent='待办与记录';
+    document.getElementById('hSub').textContent='本地保存，仅您可见';
+    let html = `
+      <div class="card">
+        <div class="add-row">
+          <input id="todoInput" placeholder="添加一项待办，例如：周二到三中听实验课" onkeydown="if(event.key==='Enter')addTodo()">
+          <button class="btn" onclick="addTodo()">添加</button>
+        </div>
+        <div id="todoList"></div>
+      </div>`;
+    document.getElementById('view').innerHTML = html;
+    renderTodoList();
+  }
+  function renderTodoList(){
+    const list = state.todos||[];
+    const box = document.getElementById('todoList');
+    if(!list.length){ box.innerHTML='<div class="empty">还没有待办，添加一条开始吧～</div>'; return; }
+    let h='';
+    list.forEach((t,idx)=>{
+      h += `<div class="todo ${t.done?'done':''}">
+        <input type="checkbox" ${t.done?'checked':''} onchange="toggleTodo(${idx},this)">
+        <span onclick="this.previousElementSibling.click()">${esc(t.text)}</span>
+        <button class="del" onclick="delTodo(${idx})">🗑</button></div>`;
+    });
+    box.innerHTML=h;
+  }
+  function addTodo(){
+    const el=document.getElementById('todoInput'); const v=el.value.trim();
+    if(!v) return; state.todos=state.todos||[]; state.todos.unshift({text:v,done:false}); save();
+    el.value=''; renderTodoList(); updateBadge();
+  }
+  function toggleTodo(idx,el){ state.todos[idx].done=el.checked; save(); renderTodoList(); updateBadge(); }
+  function delTodo(idx){ state.todos.splice(idx,1); save(); renderTodoList(); updateBadge(); }
+
+  /* ============ 学期工作历 ============ */
+  function renderCalendar(){
+    document.getElementById('hTitle').textContent='学期工作历';
+    document.getElementById('hSub').textContent='按月规划七大职责推进';
+    const y=new Date().getFullYear();
+    let html=`<div class="card"><div class="muted">在对应月份写下本月的重点工作安排（命题、听课、教研、评比、竞赛等），自动保存。</div></div><div class="cal-grid">`;
+    for(let mo=1; mo<=12; mo++){
+      const key='cal::'+y+'-'+mo;
+      const val=state.calendar[key]||'';
+      const label=y+'年'+mo+'月';
+      html+=`<div class="cal-card"><div class="cm">${label}</div>
+        <textarea data-k="${key}" placeholder="本月重点…">${esc(val)}</textarea></div>`;
+    }
+    html+=`</div>`;
+    document.getElementById('view').innerHTML=html;
+    document.querySelectorAll('#view textarea[data-k]').forEach(ta=>{
+      ta.addEventListener('input',()=>{ state.calendar[ta.dataset.k]=ta.value; save(); });
+    });
+  }
+
+  /* ============ 关于 ============ */
+  function renderAbout(){
+    document.getElementById('hTitle').textContent='关于本工作台';
+    document.getElementById('hSub').textContent='离线可用 · 数据本地保存';
+    document.getElementById('view').innerHTML = `
+      <div class="card about">
+        <p>这是为<span class="kv">初高中生物教研员</span>打造的一站式履职工作台，覆盖课堂研究、考试命题、队伍建设、实验教学、课题研究、竞赛科普、调研反馈七大职责，每项均按<span class="kv">初中 / 高中</span>分学段管理。</p>
+        <p><span class="kv">数据存放：</span>所有勾选与记录仅保存在您本机浏览器（localStorage），不联网、不上传，完全免费、隐私安全。</p>
+        <p><span class="kv">添加到手机桌面（当 APP 用）：</span></p>
+        <ol>
+          <li><b>iPhone / iPad：</b>用 Safari 打开本页 → 点底部「分享」→「添加到主屏幕」→ 命名「生物教研」→ 完成。</li>
+          <li><b>安卓手机：</b>用 Chrome 打开本页 → 点右上「⋮」→「安装应用 / 添加到主屏幕」→ 确认。</li>
+          <li><b>电脑：</b>Chrome / Edge 地址栏右侧点「安装」图标，可固定到任务栏当桌面应用。</li>
+        </ol>
+        <p><span class="kv">备份与恢复：</span>换手机或清缓存前，先导出备份文件；新设备导入即可恢复全部数据。</p>
+        <div class="row-btns">
+          <button class="btn" onclick="exportData()">⬇ 导出备份</button>
+          <button class="btn ghost" onclick="document.getElementById('imp').click()">⬆ 导入恢复</button>
+          <input type="file" id="imp" accept="application/json" style="display:none" onchange="importData(this)">
+        </div>
+      </div>
+      <div class="card about">
+        <p><span class="kv">导出履职报告：</span>把全部勾选、工作记录、听课记录、待办与工作历整理成一份文档，方便打印或报送教研室。</p>
+        <div class="row-btns">
+          <button class="btn" onclick="exportWord()">📄 导出 Word</button>
+          <button class="btn ghost" onclick="exportPDF()">🖨 导出 PDF（打印）</button>
+        </div>
+      </div>`;
+  }
+  function exportData(){
+    const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='生物教研工作台备份_'+dateStr()+'.json'; a.click();
+  }
+  function importData(el){
+    const f=el.files[0]; if(!f) return; const r=new FileReader();
+    r.onload=()=>{ try{ const d=JSON.parse(r.result); if(d&&typeof d==='object'){ state=Object.assign({done:{},notes:{},todos:[],records:{},calendar:{}},d); save(); alert('恢复成功！'); goHome(); } }
+      catch(e){ alert('文件格式不正确'); } };
+    r.readAsText(f); el.value='';
+  }
+
+  /* ============ 导出 Word / PDF ============ */
+  function buildReportHTML(){
+    const y=new Date().getFullYear();
+    let h='<!doctype html><html><head><meta charset="utf-8"><title>生物教研员工作台履职报告</title>';
+    h+='<style>body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#1f2d27;line-height:1.6;padding:24px;max-width:900px;margin:auto}';
+    h+='h1{color:#1f7a52;border-bottom:3px solid #2e9e6b;padding-bottom:8px}h2{color:#1f7a52;margin-top:26px}h3{color:#2e9e6b;margin:14px 0 4px}';
+    h+='.meta{color:#6b7d74;font-size:13px}.box{border:1px solid #e4ebe6;border-radius:8px;padding:10px 12px;margin:6px 0}.done{color:#2e9e6b}.undone{color:#999}';
+    h+='ul{margin:4px 0;padding-left:20px}.rec{border-left:3px solid #2e9e6b;padding:4px 10px;margin:6px 0;background:#f3f8f5}';
+    h+='</style></head><body>';
+    h+='<h1>生物教研员工作台 · 履职报告</h1>';
+    h+='<div class="meta">生成时间：'+new Date().toLocaleString('zh-CN')+'　|　覆盖职责：课堂研究、考试评价、队伍建设、实验教学、课题研究、竞赛科普、调研反馈</div>';
+    MODULES.forEach(m=>{
+      h+='<h2>'+m.icon+' '+m.title+'</h2>';
+      h+='<div class="meta">'+m.intro+'</div>';
+      ['junior','senior'].forEach(s=>{
+        const st=m.stages[s];
+        h+='<h3>'+st.label+'</h3><ul>';
+        st.tasks.forEach((t,i)=>{
+          const ok=state.done[doneKey(m.id,s,i)];
+          h+='<li class="'+(ok?'done':'undone')+'">'+(ok?'✔ ':'✗ ')+t+'</li>';
+        });
+        h+='</ul>';
+        const note=state.notes[noteKey(m.id,s)]||'';
+        if(note) h+='<div class="box"><b>'+st.label+'工作记录：</b><br>'+esc(note).replace(/\n/g,'<br>')+'</div>';
+        if(m.id==='m1'){
+          const list=state.records['r::'+m.id+'::'+s]||[];
+          if(list.length){
+            h+='<div class="meta" style="margin-top:6px"><b>听课记录（'+st.label+'）：</b></div>';
+            list.forEach(r=>{
+              const meta=[r.school,r.teacher,r.grade].filter(Boolean).join(' · ');
+              const det=[r.strength?('亮点：'+r.strength):'',r.weak?('不足：'+r.weak):'',r.suggest?('建议：'+r.suggest):''].filter(Boolean).join('；');
+              h+='<div class="rec"><b>'+esc(meta)+(r.topic?'　'+esc(r.topic):'')+(r.date?'　'+esc(r.date):'')+'</b><br>'+esc(det)+'</div>';
+            });
+          }
+        }
+      });
+    });
+    const todos=state.todos||[];
+    h+='<h2>✅ 待办事项</h2><ul>';
+    todos.forEach(t=>{ h+='<li class="'+(t.done?'done':'undone')+'">'+(t.done?'✔ ':'✗ ')+esc(t.text)+'</li>'; });
+    h+='</ul>';
+    h+='<h2>🗓 学期工作历（'+y+'年）</h2>';
+    for(let mo=1;mo<=12;mo++){
+      const v=state.calendar['cal::'+y+'-'+mo]||'';
+      if(v) h+='<div class="box"><b>'+y+'年'+mo+'月：</b><br>'+esc(v).replace(/\n/g,'<br>')+'</div>';
+    }
+    h+='</body></html>';
+    return h;
+  }
+  function exportWord(){
+    const html=buildReportHTML();
+    const blob=new Blob(['\ufeff'+html],{type:'application/msword'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='生物教研履职报告_'+dateStr()+'.doc'; a.click();
+  }
+  function exportPDF(){
+    const html=buildReportHTML();
+    const w=window.open('','_blank');
+    if(!w){ alert('请允许弹出窗口后重试'); return; }
+    w.document.open(); w.document.write(html); w.document.close();
+    w.focus();
+    setTimeout(()=>{ try{ w.print(); }catch(e){} }, 400);
+  }
+
+  /* ============ 工具 ============ */
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function today(){ const d=new Date(); return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日'; }
+  function dateStr(){ const d=new Date(); const p=n=>(''+n).padStart(2,'0'); return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate()); }
+  function greet(){ const h=new Date().getHours(); return h<6?'凌晨好':h<9?'早上好':h<12?'上午好':h<14?'中午好':h<18?'下午好':h<22?'晚上好':'夜深了'; }
+
+  /* ============ 启动 ============ */
+  goHome();
+  // 注册 Service Worker（离线 / 可安装）
+  </script>
+</body>
+</html>
